@@ -19,10 +19,12 @@ $(document).ready(function () {
 
 const swiperDefaultConfig = {
   loop: true,
-  // Hack prevent preview editor flickering + scroll to top
+  // Warn: Hack prevent preview editor flickering + scroll to top.
+  // Dont edit these 3 lines
   autoHeight: false,
   lazy: true,
   preloadImages: false,
+  //
   loadPrevNext: true,
   centeredSlides: true,
   observer: false,

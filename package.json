@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-swiper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add images gallery to nodebb",
   "main": "library.js",
   "repository": {
