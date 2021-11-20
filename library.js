@@ -61,9 +61,17 @@ const transform = async function (data, isParsedFromComposerPreview = false) {
   if (!data) return data;
   let postHTML = data;
   // Parse for different hook
-  if (data.postData && data.postData.content) {
+  if (
+    data.postData &&
+    data.postData.content != null &&
+    data.postData.content != undefined
+  ) {
     postHTML = data.postData.content;
-  } else if (data.userData && data.userData.signature) {
+  } else if (
+    data.userData &&
+    data.userData.signature != null &&
+    data.userData.signature != undefined
+  ) {
     postHTML = data.userData.signature;
   }
   // Using like jquery
@@ -130,9 +138,17 @@ const transform = async function (data, isParsedFromComposerPreview = false) {
   const parsedContent = parsedHtml;
   if (typeof data === 'string') {
     data = parsedContent;
-  } else if (data.postData && data.postData.content) {
+  } else if (
+    data.postData &&
+    data.postData.content != null &&
+    data.postData.content != undefined
+  ) {
     data.postData.content = parsedContent;
-  } else if (data.userData && data.userData.signature) {
+  } else if (
+    data.userData &&
+    data.userData.signature != null &&
+    data.userData.signature != undefined
+  ) {
     data.userData.signature = parsedContent;
   }
   return data;
