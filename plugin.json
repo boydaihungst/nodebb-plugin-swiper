@@ -1,6 +1,6 @@
 {
   "id": "nodebb-plugin-swiper",
-  "url": "https://github.com/NodeBB/nodebb-plugin-swiper",
+  "url": "https://github.com/boydaihungst/nodebb-plugin-swiper",
   "library": "./library.js",
   "hooks": [
     {
