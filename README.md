@@ -1,17 +1,70 @@
-# Quick Plugin for NodeBB
+# nodebb-plugin-makesmart-gallery
 
-A starter kit for quickly creating NodeBB plugins. Comes with a pre-setup LESS file, server side JS script with an `action:app.load` hook, and a client-side script. Most plugins need at least one of the above, so this ought to save you some time. For a full list of hooks have a look at our [wiki page](https://github.com/NodeBB/NodeBB/wiki/Hooks), and for more information about creating plugins please visit our [documentation portal](https://docs.nodebb.org/).
+## NOTE
 
-Fork this or copy it, and using your favourite text editor find and replace all instances of `nodebb-plugin-swiper` with `nodebb-plugin-your-plugins-name`. Change the author's name in the LICENSE and package.json files.
+This is a fork from package https://github.com/me-cooper/nodebb-plugin-makesmart-gallery.
 
-## Hello World
+## What news?
 
-Really simple, just edit `static/lib/main.js` and paste in `console.log('hello world');`, and that's it!
+- Support composer preview (Not lazy loading)
+- Default lazy loading in post/topic/user signature
+- Configable Swipe (WIP)
+- Add to npm for easy install through ACP
+- Keyboard swipe control, click on image to hide nav arrow, pagination
+- Add swiper button to composer toolbar.
 
-## Installation
+## How to use
 
-    npm install nodebb-plugin-swiper
+Preview: https://www.youtube.com/watch?v=CakfERMz4bY
 
-## Screenshots
+Just add `[[gallery]]` on top of your image-collection, followed by the images which should be displayed in the slider:
 
-Don't forget to add screenshots!
+```console
+[[gallery]]
+![fun](https://media.tenor.com/images/11fc14bb1b8dc3efbf7aa496432601d4/tenor.gif)
+![dance](https://media.tenor.com/images/82f7d090429ddc3e5ae33d7244d369c2/tenor.gif)
+![happy](https://media.tenor.com/images/a12ac6302bccc01652b7f4b33a034777/tenor.gif)
+```
+
+This simple syntax creates a slim and nice image-gallery:
+
+---
+
+It uses [Swiper](https://swiperjs.com/) as slider. You can look trough the examples to customize your slider if you want. To change behaviour edit `static/lib/main.js`.
+
+```javascript
+require(['swiper'], function (Swiper) {
+  var swiper = new Swiper('.makesmart-image-gallery', {
+    autoHeight: true,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+});
+```
+
+---
+
+So far I dont know, how to use npm so this plugin is currently only available via GitHub.
+
+1. Clone the repo with
+   `git clone https://github.com/me-cooper/nodebb-plugin-makesmart-gallery`
+2. Open the folder via console and link the folder
+   `sudo npm link`
+3. Go into your nodebb installation folder and type
+   `npm link nodebb-plugin-makesmart-gallery`
+4. Activate the plugin via cli `./nodebb activate makesmart-gallery` or via ACP
+
+It's my first plugin but I hope you enjoy it. :)
+
+---
+
+_To-Do:_
+
+- [x] Display Image-Slider in the composer preview as well
