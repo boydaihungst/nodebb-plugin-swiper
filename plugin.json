@@ -1,32 +1,34 @@
 {
-	"id": "nodebb-plugin-quickstart",
-	"url": "https://github.com/NodeBB/nodebb-plugin-quickstart",
-	"library": "./library.js",
-	"hooks": [
-		{
-			"hook": "static:app.load", "method": "init"
-		},
-		{
-			"hook": "static:api.routes", "method": "addRoutes"
-		},
-		{
-			"hook": "filter:admin.header.build", "method": "addAdminNavigation"
-		}
-	],
-	"staticDirs": {
-		"static": "./static"
-	},
-	"less": [
-		"static/style.less"
-	],
-	"scripts": [
-		"static/lib/main.js"
-	],
-	"acpScripts": [
-		"static/lib/admin.js"
-	],
-	"modules": {
-		"../client/quickstart.js": "./static/lib/quickstart.js"
-	},
-	"templates": "static/templates"
+  "id": "nodebb-plugin-swiper",
+  "url": "https://github.com/NodeBB/nodebb-plugin-swiper",
+  "library": "./library.js",
+  "hooks": [
+    {
+      "hook": "static:app.load",
+      "method": "init"
+    },
+    {
+      "hook": "filter:admin.header.build",
+      "method": "addAdminNavigation"
+    },
+    { "hook": "filter:config.get", "method": "appendConfigToClient" },
+    { "hook": "filter:parse.post", "method": "parse" },
+    { "hook": "filter:parse.signature", "method": "parse" },
+    { "hook": "filter:parse.raw", "method": "parseRaw" }
+  ],
+  "staticDirs": {
+    "static": "./static"
+  },
+  "less": ["static/style.less"],
+  "scripts": [
+    "static/lib/main.js",
+    "static/lib/inject-btn-to-composer-toolbar.js"
+  ],
+  "acpScripts": ["static/lib/admin.js"],
+  "modules": {
+    "swiper.js": "static/lib/swiper-bundle.js"
+  },
+  "templates": "static/templates",
+  "languages": "languages",
+  "defaultLang": "en-US"
 }

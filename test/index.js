@@ -9,7 +9,7 @@
  *
  * {
  *     "test_plugins": [
- *         "nodebb-plugin-quickstart"
+ *         "nodebb-plugin-swiper"
  *     ]
  * }
  */
@@ -22,20 +22,21 @@ const assert = require('assert');
 
 const db = require.main.require('./test/mocks/databasemock');
 
-describe('nodebb-plugin-quickstart', () => {
-	before(() => {
-		// Prepare for tests here
-	});
+describe('nodebb-plugin-swiper', () => {
+  before(() => {
+    // Prepare for tests here
+  });
 
-	it('should pass', (done) => {
-		const actual = 'value';
-		const expected = 'value';
-		assert.strictEqual(actual, expected);
-		done();
-	});
+  it('should pass', (done) => {
+    const actual = 'value';
+    const expected = 'value';
+    assert.strictEqual(actual, expected);
+    done();
+  });
 
-	it('should load config object', async () => {	// Tests can be async functions too
-		const config = await db.getObject('config');
-		assert(config);
-	});
+  it('should load config object', async () => {
+    // Tests can be async functions too
+    const config = await db.getObject('config');
+    assert(config);
+  });
 });

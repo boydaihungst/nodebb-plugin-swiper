@@ -1,1 +1,25 @@
-/* Place any LESS in here */
+@import (inline) './swiper-bundle.min.css';
+
+.swiper {
+  .swiper-wrapper{
+    .swiper-slide {
+      display: flex;
+      height: unset ;
+      align-content: center;
+
+      & > * {
+        margin: auto;
+        align-self: center;
+        display: flex;
+      }
+    }
+  }
+  .swiper-button-next, .swiper-button-prev {
+    transition: .3s opacity;
+    transform: translate3d(0,0,0);
+  }
+  .swiper-button-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

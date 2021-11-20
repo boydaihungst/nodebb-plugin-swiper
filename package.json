@@ -1,16 +1,16 @@
 {
-  "name": "nodebb-plugin-quickstart",
-  "version": "0.4.2",
-  "description": "A starter kit for quickly creating NodeBB plugins",
+  "name": "nodebb-plugin-swiper",
+  "version": "0.0.1",
+  "description": "Add swiper gallery",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/psychobunny/nodebb-plugin-quickstart"
+    "url": "https://github.com/boydaihungst/nodebb-plugin-swiper"
   },
   "keywords": [
     "nodebb",
     "plugin",
-    "quickstart",
+    "swiper",
     "shell"
   ],
   "husky": {
@@ -26,12 +26,12 @@
     ]
   },
   "author": {
-    "name": "psychobunny",
+    "name": "boydaihungst",
     "email": "psycho.bunny@hotmail.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/psychobunny/nodebb-plugin-quickstart/issues"
+    "url": "https://github.com/boydaihungst/nodebb-plugin-swiper/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
@@ -45,5 +45,10 @@
     "eslint-plugin-import": "2.25.3",
     "husky": "7.0.4",
     "lint-staged": "12.0.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "swiper": "^7.3.0",
+    "wiper": "^1.3.0"
   }
 }
