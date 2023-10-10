@@ -1,7 +1,5 @@
 'use strict';
 
-const nconf = require.main.require('nconf');
-const winston = require.main.require('winston');
 const controllers = require('./lib/controllers');
 const meta = require.main.require('./src/meta');
 const routeHelpers = require.main.require('./src/routes/helpers');
@@ -11,33 +9,10 @@ const startSwiperTag = '##image-slider-start';
 const endSwiperTag = '##image-slider-end';
 plugin.init = async (params) => {
   const { router, middleware /* , controllers */ } = params;
-  /**
-   * We create two routes for every view. One API call, and the actual route itself.
-   * Use the `setupPageRoute` helper and NodeBB will take care of everything for you.
-   *
-   * Other helpers include `setupAdminPageRoute` and `setupAPIRoute`
-   * */
-  routeHelpers.setupPageRoute(
-    router,
-    '/swiper',
-    middleware,
-    async (req, res) => {
-      winston.info(
-        `[plugins/swiper] Navigated to ${nconf.get('relative_path')}/swiper`,
-      );
-      // Extra data send to template
-      if ((await meta.settings.get('swiper')) == null) {
-        // meta.settings.set();
-      }
-      res.render('swiper', { uid: req.uid });
-    },
-  );
 
   routeHelpers.setupAdminPageRoute(
     router,
     '/admin/plugins/swiper',
-    middleware,
-    [],
     controllers.renderAdminPage,
   );
 };

@@ -19,14 +19,14 @@
   "staticDirs": {
     "static": "./static"
   },
-  "less": ["static/style.less"],
+  "scss": ["static/style.scss"],
   "scripts": [
     "static/lib/main.js",
     "static/lib/inject-btn-to-composer-toolbar.js"
   ],
-  "acpScripts": ["static/lib/admin.js"],
   "modules": {
-    "swiper.js": "static/lib/swiper-bundle.js"
+    "swiper.js": "static/lib/swiper-bundle.js",
+    "../admin/plugins/swiper.js": "static/lib/admin.js"
   },
   "templates": "static/templates",
   "languages": "languages",
